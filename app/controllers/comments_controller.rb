@@ -1,6 +1,13 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[ show ]
+  before_action only: [ :create, :new, :destroy, :edit, :update ] do
+    authorize_request(["author"])
+  end
 
+  before_action only: [:edit, :update, :destroy] do
+    authorize_request(["admin"])
+   end
   # GET /comments or /comments.json
   def index
     @comments = Comment.all
@@ -22,7 +29,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @comment.user = current_user
     respond_to do |format|
       if @comment.save
         format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
