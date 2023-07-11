@@ -5,9 +5,9 @@ class PostsController < ApplicationController
     authorize_request(["author"])
   end
 
-  before_action only: [:edit, :update, :destroy] do
-    authorize_request(["admin"])
-   end
+  # before_action only: [:edit, :update, :destroy] do
+  #   authorize_request(["admin"])
+  #  end
    
   # GET /posts or /posts.json
   def index

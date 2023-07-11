@@ -3,13 +3,11 @@
 one:
   image: MyString
   title: MyString
-  description: MyString
-  comment: MyString
+  description: MyText
   user: one
 
 two:
   image: MyString
   title: MyString
-  description: MyString
-  comment: MyString
+  description: MyText
   user: two
