@@ -1,4 +1,4 @@
-class CreatePosts < ActiveRecord::Migration[7.0]
+class CreateTrnposts < ActiveRecord::Migration[7.0]
   def change
     create_table :trnposts do |t|
       t.string :image

@@ -1,2 +1,2 @@
-module PostsHelper
+module TrnpostsHelper
 end

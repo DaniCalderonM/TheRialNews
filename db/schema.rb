@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_114417) do
     t.bigint "trnpost_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["trnpost_id"], name: "index_comments_on_post_id"
+    t.index ["trnpost_id"], name: "index_comments_on_trnpost_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_114417) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_id"], name: "index_trnposts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

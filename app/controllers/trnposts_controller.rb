@@ -1,5 +1,5 @@
-class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+class TrnpostsController < ApplicationController
+  before_action :set_trnpost, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action only: [ :create, :new, :destroy, :edit, :update ] do
     authorize_request(["author"])
@@ -9,70 +9,70 @@ class PostsController < ApplicationController
   #   authorize_request(["admin"])
   #  end
    
-  # GET /posts or /posts.json
+  # GET /trnposts or /trnposts.json
   def index
-    @posts = Post.all
+    @trnposts = Trnpost.all
   end
 
-  # GET /posts/1 or /posts/1.json
+  # GET /trnposts/1 or /posts/1.json
   def show
   end
 
-  # GET /posts/new
+  # GET /trnposts/new
   def new
-    @post = Post.new
+    @trnpost = Trnpost.new
   end
 
-  # GET /posts/1/edit
+  # GET /trnposts/1/edit
   def edit
   end
 
-  # POST /posts or /posts.json
+  # TRNPOST /trnposts or /trnposts.json
   def create
-    @post = Post.new(post_params)
-    @post.user = current_user
+    @trnpost = Trnpost.new(trnpost_params)
+    @trnpost.user = current_user
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
+      if @trnpost.save
+        format.html { redirect_to trnpost_url(@trnpost), notice: "Post was successfully created." }
+        format.json { render :show, status: :created, location: @trnpost }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @trnpost.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /posts/1 or /posts/1.json
+  # PATCH/PUT /trnposts/1 or /trnposts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
-        format.json { render :show, status: :ok, location: @post }
+      if @trnpost.update(trnpost_params)
+        format.html { redirect_to trnpost_url(@trnpost), notice: "Post was successfully updated." }
+        format.json { render :show, status: :ok, location: @trnpost }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @trnpost.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /posts/1 or /posts/1.json
+  # DELETE /trnposts/1 or /trnposts/1.json
   def destroy
-    @post.destroy
+    @trnpost.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
+      format.html { redirect_to trnposts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
+    def set_trnpost
+      @trnpost = Trnpost.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:image, :title, :description, :comment, :user_id)
+    def trnpost_params
+      params.require(:trnpost).permit(:image, :title, :description, :comment, :user_id)
     end
 end

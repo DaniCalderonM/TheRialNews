@@ -1,22 +1,22 @@
-<div id="<%= dom_id post %>">
+<div id="<%= dom_id trnpost %>">
   
 <div class="bg-light p-2 text-dark bg-opacity-75">
     <p>
-   <h2><u> #<%= post.id %> - <%= post.title %> </u></h2>
+   <h2><u> #<%= trnpost.id %> - <%= trnpost.title %> </u></h2>
   </p>
   
   <p>
-    <%= image_tag post.image, class:"photo" %>
+    <%= image_tag trnpost.image, class:"photo" %>
   </p>
 <div class="bg-light p-2 text-dark bg-opacity-75">
  <p>
     <strong>Por:</strong>
-    <%= post.user.name %>
+    <%= trnpost.user.name %>
   </p>
 
   <p>
     <strong>Noticia:</strong>
-    <%= post.description %>
+    <%= trnpost.description %>
   </p>
   </div>
 </div>

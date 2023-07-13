@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Trnpost < ApplicationRecord
   belongs_to :user
   has_many :comments
 end

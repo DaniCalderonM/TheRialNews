@@ -5,7 +5,7 @@
 <div>
   <%= link_to "Editar este Comentario", edit_comment_path(@comment), class:"btn btn-dark" %> |
   <%= link_to "Volver a Comentarios", comments_path, class:"btn btn-dark" %> | 
-  <%= link_to "Volver a Posts", posts_path, class:"btn btn-dark" %>
+  <%= link_to "Volver a Posts", trnposts_path, class:"btn btn-dark" %>
 
   <%= button_to "Destruir este Comentario", @comment, method: :delete %>
 </div>

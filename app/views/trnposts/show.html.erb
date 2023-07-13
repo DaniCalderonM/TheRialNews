@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @post %>
+<%= render @trnpost %>
 
-<% if @post.comments.any? %>
+<% if @trnpost.comments.any? %>
 <strong class="bgcolor">Comentarios:</strong><br>
-<% @post.comments.each do |c| %>
+<% @trnpost.comments.each do |c| %>
 <div class="card mt-2">
   <div class="card-header">
 <strong><i class="fa-sharp fa-solid fa-user-secret fa-2xl" style="color: #1049ad;"></i>  <%= c.user.name %> </strong>
@@ -32,14 +32,14 @@
 <br>
 <div>
 
-  <%= link_to "Editar este Post", edit_post_path(@post), class:"btn btn-dark" %> |
-  <%= link_to "Volver a Posts", posts_path, class:"btn btn-dark" %> | 
+  <%= link_to "Editar este Post", edit_trnpost_path(@trnpost), class:"btn btn-dark" %> |
+  <%= link_to "Volver a Posts", trnposts_path, class:"btn btn-dark" %> | 
 
   <%= link_to "Nuevo Comentario", new_comment_path, class:"btn btn-dark" %> |
   <%= link_to "Todos los Comentarios", comments_path, class:"btn btn-dark" %>
 <br><br>
 
-  <%= button_to "Destruir este Post", @post, method: :delete %>
+  <%= button_to "Destruir este Post", @trnpost, method: :delete %>
   <br>
 </div>
 
