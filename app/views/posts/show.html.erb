@@ -5,25 +5,27 @@
 <% if @post.comments.any? %>
 <strong class="bgcolor">Comentarios:</strong><br>
 <% @post.comments.each do |c| %>
-<div class="card">
+<div class="card mt-2">
   <div class="card-header">
 <strong><i class="fa-sharp fa-solid fa-user-secret fa-2xl" style="color: #1049ad;"></i>  <%= c.user.name %> </strong>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>~<%= c.content %></p>
-      <% end %>
+      <p>◉<%= c.content %></p>
+      
     </blockquote>
   </div>
 </div>
+<% end %>
 <br>
+
 <% else %>
 
 <div class="card w-50">
   <div class="card-body">
     <h5 class="card-title">Comentarios</h5>
     <p class="card-text">La publicacion no posee comentarios</p>
-   <%= link_to "New comment", new_comment_path, class:"btn btn-dark" %>
+   <%= link_to "Nuevo Comentario", new_comment_path, class:"btn btn-dark" %>
   </div>
 </div>
 <% end %>
@@ -33,7 +35,8 @@
   <%= link_to "Editar este Post", edit_post_path(@post), class:"btn btn-dark" %> |
   <%= link_to "Volver a Posts", posts_path, class:"btn btn-dark" %> | 
 
-  <%= link_to "New comment", new_comment_path, class:"btn btn-dark" %>
+  <%= link_to "Nuevo Comentario", new_comment_path, class:"btn btn-dark" %> |
+  <%= link_to "Todos los Comentarios", comments_path, class:"btn btn-dark" %>
 <br><br>
 
   <%= button_to "Destruir este Post", @post, method: :delete %>
